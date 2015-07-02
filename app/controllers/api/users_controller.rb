@@ -26,11 +26,8 @@ class Api::UsersController < ApplicationController
   # POST /api/users
   # POST /api/users.json
   def create
-    # json形式でpostされてきたものをパースする
-    json_request = JSON.parse(request.body.read)
-
     # ユーザのインスタンスを作る
-    @user = User.new(json_request)
+    @user = User.new(user_params)
 
     # ユーザのデータを保存する
     if @user.save
@@ -72,6 +69,8 @@ class Api::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password)
+      # 下記のようにすることで、paramsで実行していたpermitと同様のことができる
+      json_request = ActionController::Parameters.new(JSON.parse(request.body.read))
+      json_request.permit(:name, :email, :password)
     end
 end
