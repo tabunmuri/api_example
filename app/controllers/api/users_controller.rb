@@ -11,9 +11,9 @@ class Api::UsersController < ApplicationController
   # GET /api/users/1
   def show
     if @user.blank?
-      render :json => @user
-    else
       render :json => {}
+    else
+      render :json => @user
     end
   end
 
