@@ -3,14 +3,12 @@ class Api::UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   # GET /api/users
-  # GET /api/users.json
   def index
     @users = User.all
     render :json => @users
   end
 
   # GET /api/users/1
-  # GET /api/users/1.json
   def show
     if @user.blank?
       render :json => @user
@@ -20,7 +18,6 @@ class Api::UsersController < ApplicationController
   end
 
   # POST /api/users
-  # POST /api/users.json
   def create
     # ユーザのインスタンスを作る
     @user = User.new(user_params)
@@ -34,7 +31,6 @@ class Api::UsersController < ApplicationController
   end
 
   # PATCH/PUT /api/users/1
-  # PATCH/PUT /api/users/1.json
   def update
     if @user.update(user_params)
       render :json => @user
@@ -44,7 +40,6 @@ class Api::UsersController < ApplicationController
   end
 
   # DELETE /api/users/1
-  # DELETE /api/users/1.json
   def destroy
     @user.destroy
     render :json => {status:200}
