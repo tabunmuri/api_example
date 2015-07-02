@@ -37,11 +37,9 @@ class Api::UsersController < ApplicationController
   # PATCH/PUT /api/users/1.json
   def update
     if @user.update(user_params)
-      format.html { redirect_to @user, notice: 'User was successfully updated.' }
-      format.json { render :show, status: :ok, location: @user }
+      render :json => @user
     else
-      format.html { render :edit }
-      format.json { render json: @user.errors, status: :unprocessable_entity }
+      render :json => {status:500}
     end
   end
 
@@ -49,10 +47,7 @@ class Api::UsersController < ApplicationController
   # DELETE /api/users/1.json
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    render :json => {status:200}
   end
 
   private
