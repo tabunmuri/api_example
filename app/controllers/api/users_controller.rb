@@ -1,10 +1,12 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token
 
-  # GET /users
-  # GET /users.json
+  # GET /api/users
+  # GET /api/users.json
   def index
     @users = User.all
+    render :json => @users
   end
 
   # GET /users/1
