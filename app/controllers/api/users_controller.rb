@@ -26,16 +26,17 @@ class Api::UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    # json形式でpostされてきたものをパースする
+    json_request = JSON.parse(request.body.read)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    # ユーザのインスタンスを作る
+    @user = User.new(json_request)
+
+    # ユーザのデータを保存する
+    if @user.save
+      render :json => @user
+    else
+      render :json => {status:200}
     end
   end
 
