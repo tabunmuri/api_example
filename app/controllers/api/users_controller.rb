@@ -9,22 +9,22 @@ class Api::UsersController < ApplicationController
     render :json => @users
   end
 
-  # GET /users/1
-  # GET /users/1.json
+  # GET /api/users/1
+  # GET /api/users/1.json
   def show
   end
 
-  # GET /users/new
+  # GET /api/users/new
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
+  # GET /api/users/1/edit
   def edit
   end
 
-  # POST /users
-  # POST /users.json
+  # POST /api/users
+  # POST /api/users.json
   def create
     # json形式でpostされてきたものをパースする
     json_request = JSON.parse(request.body.read)
@@ -40,8 +40,8 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
+  # PATCH/PUT /api/users/1
+  # PATCH/PUT /api/users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -54,8 +54,8 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
+  # DELETE /api/users/1
+  # DELETE /api/users/1.json
   def destroy
     @user.destroy
     respond_to do |format|
