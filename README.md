@@ -77,3 +77,7 @@ http://jmeter.apache.org/
 [Railsドキュメント - ルーティング(routes)](http://railsdoc.com/routes)
 
 →routingに使います。
+
+[Railsドキュメント - 検証(validation)](http://railsdoc.com/validation)
+
+→validationに使います。
