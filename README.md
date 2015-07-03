@@ -67,3 +67,13 @@ http://jmeter.apache.org/
 
 	`rails s`
 
+
+# 参考文献
+
+[Railsドキュメント - railsコマンド(rails)](http://railsdoc.com/rails)
+
+→主に、ControllerやModelの作成時に使います。
+
+[Railsドキュメント - ルーティング(routes)](http://railsdoc.com/routes)
+
+→routingに使います。
