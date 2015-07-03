@@ -1,8 +1,7 @@
 # api_example
 
-RailsでAPIサーバを作る為の、簡単なお手本を作ってみました。
+RailsでAPIサーバを作る為の、簡単なサンプルを作ってみました。
 API作らなきゃいけないけど、Railsわかんないって時とかに見ると、良いかもしれません。
-内容的には、テクニカルな事はあまりしていないので、初心者向けかと思います。
 
 あと、あわせて、Jmeterの話をしたかったので、JmeterのファイルをJmeterディレクトリに入れておきました。
 
@@ -63,8 +62,6 @@ http://jmeter.apache.org/
 
         production:
           secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
-
-
 
 9. サーバを実行
 
