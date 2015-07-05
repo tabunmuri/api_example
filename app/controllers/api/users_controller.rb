@@ -5,15 +5,15 @@ class Api::UsersController < ApplicationController
   # GET /api/users
   def index
     @users = User.all
-    render :json => @users
+    render json: @users
   end
 
   # GET /api/users/1
   def show
     if @user.blank?
-      render :json => {}
+      render json: {}
     else
-      render :json => @user
+      render json: @user
     end
   end
 
@@ -24,28 +24,29 @@ class Api::UsersController < ApplicationController
 
     # ユーザのデータを保存する
     if @user.save
-      render :json => @user
+      render json: @user
     else
-      render :json => {status:500}
+      render json: { status: 500 }
     end
   end
 
   # PATCH/PUT /api/users/1
   def update
     if @user.update(user_params)
-      render :json => @user
+      render json: @user
     else
-      render :json => {status:500}
+      render json: { status: 500 }
     end
   end
 
   # DELETE /api/users/1
   def destroy
     @user.destroy
-    render :json => {status:200}
+    render json: { status: 200 }
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find_by(id: params[:id])
