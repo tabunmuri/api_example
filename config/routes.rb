@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :api do
-    resources :users
+    resources :users,:only => [:index, :show, :create, :update, :destroy]
   end
 
 
