@@ -68,6 +68,35 @@ http://jmeter.apache.org/
 	`rails s`
 
 
+# 生成されるAPI
+
+`rake routes`で、下記の内容が見れます
+
+通常の方法で、ユーザ情報を追加するURL
+
+|Prefix|Verb|URI Pattern|Controller#Action|
+|:-----------:|:-----------:|:------------:|:------------:|  
+|users|GET|/users(.:format)|users#index|
+|          |POST|/users(.:format)          |users#create|
+|new_user|GET|/users/new(.:format)|users#new|
+|edit_user|GET|/users/:id/edit(.:format)|users#edit|
+|user|GET|/users/:id(.:format)|users#show|
+|          |PATCH|/users/:id(.:format)|users#update|
+|          |PUT|/users/:id(.:format)|users#update|
+|          |DELETE|/users/:id(.:format)|users#destroy|
+
+API用のURL
+
+|Prefix|Verb|URI Pattern|Controller#Action|
+|:-----------:|:-----------:|:------------:|:------------:|  
+|api_users|GET|/api/users(.:format)|api/users#index
+|          |POST|/api/users(.:format)|api/users#create
+|api_user|GET|/api/users/:id(.:format)|api/users#show|
+|          |PATCH|/api/users/:id(.:format)|api/users#update|
+|          |PUT|/api/users/:id(.:format)|api/users#update|
+|          |DELETE|/api/users/:id(.:format)|api/users#destroy|
+
+
 # 参考文献
 
 [Railsドキュメント - railsコマンド(rails)](http://railsdoc.com/rails)
